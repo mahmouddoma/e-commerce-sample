@@ -14,8 +14,6 @@ body {
   height: 100%;
 }
 .products-container {
-  /* width: 900px; */
-  /* max-width: 90vw; */
   margin: auto;
   text-align: center;
   transition: transform 0.5s;
@@ -25,15 +23,19 @@ body {
   font-size: 21px;
   margin-bottom: 0.5em;
 }
-header {
+.navbar {
   background-color: #333;
-  color: #fff;
-  padding: 20px 20px;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 20vh;
+}
+.navbar .nav-link a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+nav ul {
+  list-style: none;
+}
+nav ul li {
+  display: inline;
 }
 .cart-list {
   display: flex;
@@ -67,53 +69,129 @@ header {
   font-weight: bold;
   color: #fff;
 }
-header a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s ease-in-out;
-}
-header a:hover {
-  color: #ffcc00;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
-}
-nav ul {
-  list-style: none;
-}
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-.listProductHTML {
+
+/* .listProductHTML {
   padding: 20px;
+} */
+.products-container {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin: auto;
+  width: 90%;
+  max-width: 1200px;
 }
+
 .products {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
+
 .product {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
-  margin: 10px;
   width: 200px;
+  max-width: 300px;
+  margin: 10px;
+  padding: 10px;
   text-align: center;
   box-shadow: 2px 7px 21px 1px;
+  transition: transform 0.3s ease-in-out;
 }
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
 .product img {
-  width: 200px;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  object-fit: scale-down;
+  border-radius: 10px;
   filter: drop-shadow(0 50px 20px #0009);
 }
+.card-title {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.popup img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.popup-content {
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.close {
+  right: 10px;
+  cursor: pointer;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn .close {
+  background-color: #6c757d;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.btn .checkOut {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  height: 100px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.card-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #009688;
+}
+.btn-primary {
+  background-color: #009688;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* Footer style */
 footer {
   text-align: center;
   padding: 10px;
@@ -149,11 +227,13 @@ button:hover {
 }
 body.showCart .cartTab {
   inset: 0 0 0 auto;
-  height: fit-content;
+  height: auto;
+  overflow: scroll;
+  width: auto;
 }
-body.showCart .products-container {
-  transform: translateX(0);
-}
+/* body.showCart .products-container {
+  transform: translateX(-250px);
+} */
 
 .cartTab h1 {
   padding: 20px;
@@ -298,4 +378,36 @@ body.showCart .products-container {
     width: 100%;
     height: 170px;
   }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

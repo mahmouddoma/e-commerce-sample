@@ -23,16 +23,16 @@ fetch("https://fakestoreapi.com/products")
 
     for (let item of products) {
       output += `
-    <article class="col-12 col-sm-6 col-md-4 product" data-name="${item.title}" data-price="${item.price}">
-    <img class="card-img-top rounded-3 w-50" loading="lazy" src="${item.image}" alt="${item.title}">
-    <div class="card-body">
-        <h2 class="card-title mt-4">${item.title}</h2>
-        <p class="card-text text-center">${item.description}</p>
-        <h2 class="card-text"><span>&#36;</span>${item.price}</h2>
-        <button onclick="showPopup('${item.image}', '${item.description}', '${item.price}')" class="btn btn-primary addCart">Know More</button>
-        <button onclick="addToCart(event)" class="btn btn-primary addCart">Add to Cart</button>
-    </div>
-  </article>
+          <article class="product" data-name="${item.title}" data-price="${item.price}">
+            <img class="card-img-top rounded-3 w-50" loading="lazy" src="${item.image}" alt="${item.title}">
+            <div class="card-body">
+                <h2 class="card-title mt-4">${item.title}</h2>
+                <p class="card-text text-center">${item.description}</p>
+                <h2 class="card-text"><span>&#36;</span>${item.price}</h2>
+                <button onclick="showPopup('${item.image}', '${item.description}', '${item.price}')" class="btn btn-primary addCart">Know More</button>
+                <button onclick="addToCart(event)" class="btn btn-primary addCart">Add to Cart</button>
+            </div>
+          </article>
   <div class="popup" id="popup">
     <div class="popup-content ">
       <span class="close bg-light rounded-1 mb-2 text-center" onclick="closePopup()">&times;</span>
@@ -129,21 +129,21 @@ function checkout() {
 }
 
 function showPopup(imageSrc, description, price, title) {
-  var modal = document.querySelector('.popup');
-  var popupImg = document.getElementById('popupImg');
-  var popupTitle = document.getElementById('popupTitle');
-  var popupDesc = document.getElementById('popupDesc');
-  var popupPrice = document.getElementById('popupPrice');
+  var modal = document.querySelector(".popup");
+  var popupImg = document.getElementById("popupImg");
+  var popupTitle = document.getElementById("popupTitle");
+  var popupDesc = document.getElementById("popupDesc");
+  var popupPrice = document.getElementById("popupPrice");
 
   popupImg.src = imageSrc;
   popupDesc.textContent = description;
   popupTitle.textContent = title;
-  popupPrice.innerHTML = '<span>&#36;</span>' + price;
+  popupPrice.innerHTML = "<span>&#36;</span>" + price;
 
-  modal.style.display = 'block';
+  modal.style.display = "block";
 
-  var closeButton = document.querySelector('.close');
-  closeButton.onclick = function() {
-    modal.style.display = 'none';
+  var closeButton = document.querySelector(".close");
+  closeButton.onclick = function () {
+    modal.style.display = "none";
   };
 }

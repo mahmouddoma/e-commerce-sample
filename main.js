@@ -29,19 +29,21 @@ fetch("https://fakestoreapi.com/products")
                 <h2 class="card-title mt-4">${item.title}</h2>
                 <p class="card-text text-center">${item.description}</p>
                 <h2 class="card-text"><span>&#36;</span>${item.price}</h2>
-                <button onclick="showPopup('${item.image}', '${item.description}', '${item.price}')" class="btn btn-primary addCart">Know More</button>
-                <button onclick="addToCart(event)" class="btn btn-primary addCart">Add to Cart</button>
+               <div class="btn">
+                  <button onclick="showPopup('${item.image}', '${item.description}', '${item.price}')" class="btn btn-primary addCart">Know More</button>
+                  <button onclick="addToCart(event)" class="btn btn-primary addCart">Add to Cart</button>
+               </div>
             </div>
           </article>
-  <div class="popup" id="popup">
-    <div class="popup-content ">
-      <span class="close bg-light rounded-1 mb-2 text-center" onclick="closePopup()">&times;</span>
-      <img id="popupImg" class="card-img-top text-light rounded-4" loading="lazy" src="" alt="">
-      <h2 id="popupTitle" class="card-title mt-4 text-light"></h2>
-      <p id="popupDesc" class="card-text text-center text-light"></p>
-      <h2 id="popupPrice" class="card-text text-light"></h2>
-    </div>
-  </div>
+          <div class="popup" id="popup">
+            <div class="popup-content ">
+              <span class="close bg-light rounded-1 mb-2 text-center" onclick="closePopup()">&times;</span>
+              <img id="popupImg" class="card-img-top text-light rounded-4" loading="lazy" src="" alt="">
+              <h2 id="popupTitle" class="card-title mt-4 text-light"></h2>
+              <p id="popupDesc" class="card-text text-center text-light"></p>
+              <h2 id="popupPrice" class="card-text text-light"></h2>
+            </div>
+          </div>
       `;
     }
     document.querySelector(".listProductHTML .products").innerHTML = output;
@@ -147,3 +149,47 @@ function showPopup(imageSrc, description, price, title) {
     modal.style.display = "none";
   };
 }
+
+function filterProducts() {
+  var filter = document.getElementById("filterInput").value.toUpperCase();
+  var minPrice = parseFloat(document.getElementById("minPrice").value);
+  var maxPrice = parseFloat(document.getElementById("maxPrice").value);
+
+  var products = document.getElementsByClassName("product");
+
+  for (var i = 0; i < products.length; i++) {
+    var productName = products[i].getAttribute("data-name").toUpperCase();
+    var productPrice = parseFloat(products[i].getAttribute("data-price"));
+
+    var nameMatch = productName.indexOf(filter) > -1;
+    var priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
+
+    if (nameMatch && priceMatch) {
+      products[i].style.display = "";
+    } else {
+      products[i].style.display = "none";
+    }
+  }
+}
+
+function clearFilter() {
+  document.getElementById("filterInput").value = "";
+  document.getElementById("minPrice").value = "0";
+  document.getElementById("maxPrice").value = "1000";
+
+  var products = document.getElementsByClassName("product");
+  for (var i = 0; i < products.length; i++) {
+    products[i].style.display = "";
+  }
+
+  var slideshowContainer = document.querySelector(".slideshow-container");
+  slideshowContainer.style.display = "block";
+}
+
+// wraper
+var hamb = document.getElementById("hamb");
+var left = document.getElementById("left-side");
+hamb.addEventListener("click", function () {
+  this.classList.toggle("active");
+  left.classList.toggle("active");
+});

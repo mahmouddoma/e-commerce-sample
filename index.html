@@ -14,11 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="">
+    <!-- Nav Header -->
     <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand text-light fs-2" href="#">E-Commerce Store</a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -26,7 +28,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                <ul class="navbar-nav me-auto mb-2 mt-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
                     </li>
@@ -35,48 +37,50 @@
                     </li>
                 </ul>
             </div>
+            <!-- filter -->
+
+        </div>
+        <!-- product pasket -->
+        <div class="cart-list rounded-5 d-flex">
+            <div class="title-cart">Product List</div>
+            <div class="icon-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="">0</span>
+            </div>
+        </div>
         </div>
     </nav>
-
-
-    <div class="wraper">
-        <a class="icon" id="hamb" href="#left-side">
-            <span class="hamb"></span>
-        </a>
-        <div class="row" id="left-side">
-            <ul>
-                <li>
-                    <div class="cart-list mt-5 rounded-5 d-flex">
-                        <div class="title-cart">Product List</div>
-                        <div class="icon-cart">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="">0</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row filter mt-3 ms-4">
-                        <label for="filterInput text-dark">Filter:</label>
+    <!-- slider image -->
+    <div class="container products-container">
+        <div class="row">
+            <div class="col-2">
+                <div class="filter me-5">
+                    <div class="row">
+                        <label for="filterInput">Filter:</label>
                         <input type="text" id="filterInput" oninput="filterProducts()">
                         <button onclick="clearFilter()" class="btnclear">Clear Filter</button>
                     </div>
-                </li>
-                <li>
-                    <div id="priceFilter" class="d-flex">
-                        <label for="minPrice" class="ms-4">Min Price:</label>
+                    <div id="priceFilter" class="row">
+                        <label for="minPrice">Min Price:</label>
                         <input type="number" id="minPrice" value="0">
-                        <label for="maxPrice" class="ms-2">Max Price:</label>
+                        <label for="maxPrice">Max Price:</label>
                         <input type="number" id="maxPrice" value="1000">
-                        <button onclick="filterProducts()" class="ms-2">Apply Price Filter</button>
+                        <button onclick="filterProducts()">Apply Price Filter</button>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </div>
+            <div class="col-10">
+                <div id="slider-container">
+                    <div id="slider"></div>
+                    <button id="prevButton">Previous</button>
+                    <button id="nextButton">Next</button>
+                </div>
+            </div>
         </div>
-
     </div>
 
-
-    <div class="container products-container">
+    <!-- Products cards -->
+    <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="">
                 <div id="productsContainer" class="listProductHTML mx-auto text-center">
@@ -87,7 +91,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Card tab -->
         <div class="row">
             <div class="col-12 mx-auto">
                 <div class="cartTab mt-4">
@@ -103,8 +107,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <!-- Footer -->
     <footer class="mt-5">
         <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
     </footer>
@@ -113,6 +117,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="main.js"></script>
 </body>
 

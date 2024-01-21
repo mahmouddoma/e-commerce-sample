@@ -11,6 +11,7 @@ ul {
 body {
   font-family: "Poppins", sans-serif;
 }
+
 .products-container {
   margin: auto;
   text-align: center;
@@ -100,7 +101,8 @@ nav ul li {
   margin-right: 10px;
   margin-bottom: 5px;
 }
-#priceFilter input, #priceFilter button {
+#priceFilter input,
+#priceFilter button {
   margin-bottom: 10px;
 }
 
@@ -127,7 +129,7 @@ nav ul li {
   justify-content: center;
   align-items: center;
 }
-
+/* Card Products */
 .products {
   display: flex;
   justify-content: center;
@@ -188,13 +190,13 @@ nav ul li {
   right: 10px;
   cursor: pointer;
 }
-.btn {
+/* .product .btn {
   display: flex;
   justify-content: center;
   margin-top: 10px;
-}
+} */
 
-.btn button {
+.product .btn button {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
@@ -225,7 +227,7 @@ nav ul li {
   font-weight: bold;
   color: #009688;
 }
-.btn-primary {
+.product .btn-primary {
   background-color: #009688;
   color: #fff;
   border: none;
@@ -239,19 +241,6 @@ footer {
   padding: 10px;
   background-color: #333;
   color: #fff;
-}
-button {
-  padding: 10px 20px;
-  background-color: #605858;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-button:hover {
-  background-color: #ffdb4d;
-  color: #333;
 }
 
 /* Cart Tab Style */
@@ -298,6 +287,9 @@ body.showCart .cartTab {
 
 .cartTab .btn .close {
   background-color: #555;
+  justify-content: center;
+  font-size: 16px;
+  align-items: center;
 }
 
 .cartTab .listCart .products img {
@@ -356,7 +348,7 @@ body.showCart .cartTab {
 }
 /* wraper */
 
-ul {
+/* ul {
   padding: 0;
 }
 
@@ -420,8 +412,8 @@ ul {
 .wraper #left-side {
   display: flex;
   width: 25vw;
-  background-color: #1a1a1a; 
-  color: #ff6f46; 
+  background-color: #1a1a1a;
+  color: #ff6f46;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -452,7 +444,7 @@ ul {
   overflow: hidden;
   margin-bottom: 15px;
   cursor: pointer;
-  transition: all 0.6s linear 0s;  
+  transition: all 0.6s linear 0s;
 }
 .wraper #left-side ul li div {
   z-index: 999;
@@ -483,4 +475,117 @@ ul {
 }
 .wraper #left-side ul li:hover:after {
   right: 0;
+} */
+
+.filter {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: contents;
+    width: 40%;
+  height: 200px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#filterInput,
+#minPrice,
+#maxPrice {
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btnclear,
+#priceFilter button {
+  padding: 8px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnclear:hover,
+#priceFilter button:hover {
+  background-color: #2980b9;
+}
+
+#left-side {
+  display: none;
+  background-color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 80%;
+  z-index: 2;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
+}
+#slider-container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 21px 0 50px 0;
+}
+
+#slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 70vh;
+}
+
+.slide img {
+  width: 30%;
+  height: auto;
+  border-radius: 8px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+#slider-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#slider-container button:hover {
+  background-color: #2980b9;
+}
+
+#prevButton {
+  left: 10px;
+}
+
+#nextButton {
+  right: 10px;
 }

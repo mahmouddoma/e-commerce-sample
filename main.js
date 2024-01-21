@@ -1,4 +1,6 @@
 // @ts-nocheck
+const API_URL = "https://fakestoreapi.com/products";
+
 let iconCart = document.querySelector(".cart-list");
 let closeCart = document.querySelector(".close");
 let body = document.querySelector("body");
@@ -16,7 +18,7 @@ closeCart.addEventListener("click", () => {
 
 let cartItemCount = 0;
 
-fetch("https://fakestoreapi.com/products")
+fetch(API_URL)
   .then((res) => res.json())
   .then((products) => {
     let output = "";
@@ -186,10 +188,45 @@ function clearFilter() {
   slideshowContainer.style.display = "block";
 }
 
-// wraper
-var hamb = document.getElementById("hamb");
-var left = document.getElementById("left-side");
-hamb.addEventListener("click", function () {
-  this.classList.toggle("active");
-  left.classList.toggle("active");
+//Image Slider
+document.addEventListener("DOMContentLoaded", function () {
+  const sliderContainer = document.getElementById("slider");
+  const apiUrl = API_URL;
+  const prevButton = document.getElementById("prevButton");
+  const nextButton = document.getElementById("nextButton");
+
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((products) => {
+      products.forEach((product) => {
+        const slide = document.createElement("div");
+        slide.classList.add("slide");
+        const image = document.createElement("img");
+        image.src = product.image;
+        slide.appendChild(image);
+        sliderContainer.appendChild(slide);
+      });
+
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        const newTransformValue = -index * 100 + "%";
+        sliderContainer.style.transform = `translateX(${newTransformValue})`;
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % products.length;
+        showSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + products.length) % products.length;
+        showSlide(currentIndex);
+      }
+
+      setInterval(nextSlide, 3000);
+      prevButton.addEventListener("click", prevSlide);
+      nextButton.addEventListener("click", nextSlide);
+    })
+    .catch((error) => console.error("Error fetching products:", error));
 });

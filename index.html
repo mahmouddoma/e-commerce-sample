@@ -19,28 +19,26 @@
 
 <body class="">
     <!-- Nav Header -->
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand text-light fs-2" href="#">E-Commerce Store</a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+            <a class="navbar-brand fs-2" href="#">E-Commerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mt-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Link</a>
+                        <a class="nav-link" href="#">Link</a>
                     </li>
                 </ul>
             </div>
-            <!-- filter -->
-
         </div>
-        <!-- product pasket -->
+        <!-- Product Basket -->
         <div class="cart-list rounded-5 d-flex">
             <div class="title-cart">Product List</div>
             <div class="icon-cart">
@@ -48,50 +46,47 @@
                 <span class="">0</span>
             </div>
         </div>
-        </div>
     </nav>
-    <!-- slider image -->
+    <!-- Slider Image -->
     <div class="container products-container">
-        <div class="row">
-            <div class="col-2">
-                <div class="filter me-5">
-                    <div class="row">
-                        <label for="filterInput">Filter:</label>
-                        <input type="text" id="filterInput" oninput="filterProducts()">
-                        <button onclick="clearFilter()" class="btnclear">Clear Filter</button>
-                    </div>
-                    <div id="priceFilter" class="row">
-                        <label for="minPrice">Min Price:</label>
-                        <input type="number" id="minPrice" value="0">
-                        <label for="maxPrice">Max Price:</label>
-                        <input type="number" id="maxPrice" value="1000">
-                        <button onclick="filterProducts()">Apply Price Filter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-10">
-                <div id="slider-container">
-                    <div id="slider"></div>
-                    <button id="prevButton">Previous</button>
-                    <button id="nextButton">Next</button>
-                </div>
+        <div class="col-12">
+            <div id="slider-container">
+                <!-- Slider Content -->
+                <div id="slider"></div>
+                <button id="prevButton" class="btn btn-secondary">Previous</button>
+                <button id="nextButton" class="btn btn-secondary">Next</button>
             </div>
         </div>
     </div>
 
-    <!-- Products cards -->
+    <!-- Products Cards -->
     <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="">
-                <div id="productsContainer" class="listProductHTML mx-auto text-center">
-                    <div class="products">
-                        <div class="card">
-                        </div>
+        <div class="row">
+            <div class="mt-5 text-center justify-content-center align-items-center ">
+                <div class="filter">
+                    <div class="">
+                        <label for="filterInput">Search:</label>
+                        <input type="text" id="filterInput" oninput="filterProducts()" class="form-control">
+                        <button onclick="clearFilter()" class="btn btn-danger">Clear Search</button>
+                    </div>
+                    <div id="priceFilter" class="row">
+                        <label for="minPrice">Min Price:</label>
+                        <input type="number" id="minPrice" value="0" class="form-control">
+                        <label for="maxPrice">Max Price:</label>
+                        <input type="number" id="maxPrice" value="1000" class="form-control">
+                        <button onclick="filterProducts()" class="btn btn-primary">Apply Price Filter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="listProductHTML mx-auto text-center">
+                <div class="products">
+                    <div class="card">
+                        <!-- Card Content -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Card tab -->
+        <!-- Card Tab -->
         <div class="row">
             <div class="col-12 mx-auto">
                 <div class="cartTab mt-4">
@@ -108,16 +103,19 @@
             </div>
         </div>
     </div>
+
     <!-- Footer -->
     <footer class="mt-5">
         <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Custom JavaScript -->
     <script src="main.js"></script>
 </body>
 

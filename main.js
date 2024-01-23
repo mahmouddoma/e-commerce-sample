@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevButton = document.getElementById("prevButton");
   const nextButton = document.getElementById("nextButton");
 
-  fetch(apiUrl)
+  fetch(API_URL)
     .then((response) => response.json())
     .then((products) => {
       products.forEach((product) => {

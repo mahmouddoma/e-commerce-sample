@@ -1,27 +1,14 @@
+/* Font Import */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap");
-/* body,
-h1,
-h2,
-h3,
-p,
-ul {
-  margin: 0;
-  padding: 0;
-} */
+
+/* Reset and Body Styles */
 body {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.products-container {
-  margin: auto;
-  text-align: center;
-  transition: transform 0.5s;
-}
-.listProductHTML h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 21px;
-  margin-bottom: 0.5em;
-}
+/* Navbar Styles */
 .navbar {
   background-color: #333;
 }
@@ -29,9 +16,11 @@ body {
 nav ul {
   list-style: none;
 }
+
 nav ul li {
   display: inline;
 }
+
 .cart-list {
   display: flex;
   align-items: center;
@@ -42,33 +31,35 @@ nav ul li {
   width: 200px;
   height: 80px;
 }
+
 .icon-cart {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
+
+/* Hover Effect for Cart List */
 .cart-list:hover {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+
 .title-cart {
   margin-right: 10px;
   font-weight: bold;
 }
+
 .fa-cart-shopping {
   font-size: 24px;
   color: #555;
 }
+
 .icon-cart span {
   margin-left: 5px;
   font-weight: bold;
   color: #fff;
 }
 
-.slide {
-  width: 300px;
-  padding: 150px 18px 0 26px;
-}
-/* Card Products */
+/* Card Products Styles */
 .products {
   display: flex;
   justify-content: center;
@@ -79,10 +70,8 @@ nav ul li {
 .product {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 15px;
   max-width: 300px;
   margin: 10px;
-  padding: 10px;
   text-align: center;
   box-shadow: 2px 7px 21px 1px;
   transition: transform 0.3s ease-in-out;
@@ -95,10 +84,13 @@ nav ul li {
   border-radius: 10px;
   filter: drop-shadow(0 50px 20px #0009);
 }
+
 .card-title {
   font-size: 1.5rem;
   margin-top: 10px;
 }
+
+/* Popup Styles */
 .popup {
   display: none;
   position: fixed;
@@ -113,27 +105,41 @@ nav ul li {
   color: #fff;
 }
 
+/* Popup Image Styles */
 .popup img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
 }
 
+/* Popup Content Styles */
 .popup-content {
   position: relative;
   color: white;
   text-align: center;
 }
 
+/* Close Button Styles */
 .close {
   right: 10px;
   cursor: pointer;
 }
 
+/* Button Styles in Product */
 .product .btn button {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button Styles in Cart Tab */
+.btn .close,
+.btn .checkOut {
+  padding: 8px 16px;
+  border: none;
+  font-weight: 500;
+  font-family: Poppins;
   cursor: pointer;
 }
 
@@ -156,11 +162,14 @@ nav ul li {
   max-width: 100%;
   overflow: hidden;
 }
+
 .card-price {
   font-size: 1.25rem;
   font-weight: bold;
   color: #009688;
 }
+
+/* Product Button Styles */
 .product .btn-primary {
   background-color: #009688;
   color: #fff;
@@ -169,7 +178,8 @@ nav ul li {
   cursor: pointer;
   margin-top: 10px;
 }
-/* Footer style */
+
+/* Footer Styles */
 footer {
   text-align: center;
   padding: 10px;
@@ -177,7 +187,7 @@ footer {
   color: #fff;
 }
 
-/* Cart Tab Style */
+/* Cart Tab Styles */
 .cartTab {
   width: 400px;
   height: fit-content;
@@ -190,15 +200,14 @@ footer {
   transition: 0.5s;
   filter: drop-shadow(3px 10px 21px black);
 }
+
+/* Show Cart Tab Styles */
 body.showCart .cartTab {
   inset: 0 0 0 auto;
   height: auto;
   overflow: scroll;
   width: auto;
 }
-/* body.showCart .products-container {
-  transform: translateX(-250px);
-} */
 
 .cartTab h1 {
   padding: 20px;
@@ -206,13 +215,13 @@ body.showCart .cartTab {
   font-weight: 300;
 }
 
+/* Button Styles in Cart Tab */
 .cartTab .btn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
 .cartTab .btn button {
-  background-color: #e8bc0e;
   border: none;
   font-weight: 500;
   font-family: Poppins;
@@ -226,6 +235,7 @@ body.showCart .cartTab {
   align-items: center;
 }
 
+/* Product Image Styles in Cart Tab */
 .cartTab .listCart .products img {
   width: 100%;
   border-radius: 20px;
@@ -233,6 +243,7 @@ body.showCart .cartTab {
   filter: drop-shadow(2px 4px 6px white);
 }
 
+/* Product List Styles in Cart Tab */
 .cartTab .listCart .products {
   display: grid;
   grid-template-columns: 70px 150px 50px 1fr;
@@ -258,6 +269,8 @@ body.showCart .cartTab {
 .listCart {
   overflow: auto;
 }
+
+/* Hide Scrollbar in Cart Tab */
 .listCart::-webkit-scrollbar {
   width: 0;
 }
@@ -267,6 +280,7 @@ body.showCart .cartTab {
   color: #eee;
 }
 
+/* Close Button Styles */
 .close {
   color: #aaa;
   float: right;
@@ -280,7 +294,8 @@ body.showCart .cartTab {
   text-decoration: none;
   cursor: pointer;
 }
-/* Filter Style */
+
+/* Filter Styles */
 .filter {
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -309,6 +324,7 @@ body.showCart .cartTab {
   margin-bottom: 10px;
 }
 
+/* Button Styles in Filter */
 .filter button {
   cursor: pointer;
   padding: 8px 12px;
@@ -322,6 +338,7 @@ body.showCart .cartTab {
   color: #fff;
 }
 
+/* Input Styles in Filter */
 .filter input.form-control,
 #minPrice,
 #maxPrice {
@@ -340,6 +357,7 @@ body.showCart .cartTab {
   border-color: #4caf50;
 }
 
+/* Price Filter Styles */
 #priceFilter {
   display: flex;
   justify-content: space-between;
@@ -354,6 +372,7 @@ body.showCart .cartTab {
   margin-right: 10px;
 }
 
+/* Button Styles for Navigation */
 .btn-secondary {
   background-color: #6c757d;
   color: #fff;
@@ -369,6 +388,7 @@ body.showCart .cartTab {
   color: #fff;
 }
 
+/* Input Styles for Search */
 #filterInput {
   padding: 8px;
   border: 1px solid #ccc;
@@ -376,6 +396,7 @@ body.showCart .cartTab {
   margin: 2px 0 8px 0;
 }
 
+/* Slider Container Styles */
 #slider-container {
   width: 80%;
   margin: auto;
@@ -399,12 +420,11 @@ body.showCart .cartTab {
 }
 
 .slide img {
-  width: 30%;
+  width: 20%;
   height: auto;
   border-radius: 8px;
   object-fit: cover;
-  padding: 16px 6px 6px 12px;
-}
+  margin-top: 180px;}
 
 #slider-container button {
   position: absolute;
@@ -431,4 +451,3 @@ body.showCart .cartTab {
 #nextButton {
   right: 10px;
 }
-
